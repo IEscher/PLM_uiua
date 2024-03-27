@@ -13,35 +13,43 @@ WCol ← [...255]
 
 # [255 255 255 255]
 
-[]
+# [0]
+
+R~GetMousePosition
+
 ⍢(
   R~BeginDrawing
 
   # PRESSED
 
   ⍥(
-    # R~ClearBackground BCol
-    # R~DrawRectangle WRect
     R~DrawPixel R~GetMousePosition WCol
-    R~GetMousePosition WCol
+
+    ◌
+    R~GetMousePosition
   ) R~IsMouseButtonPressed 0
 
-  # DOWN
+  # # DOWN
 
   ⍥(
-    # R~ClearBackground BCol
-    # R~DrawRectangle GRect
-    R~DrawLine R~GetMousePosition
-    R~GetMousePosition WCol
+    R~DrawLine R~GetMousePosition : WCol
+
+    R~GetMousePosition
   ) R~IsMouseButtonDown 0
 
   # RELEASE
 
   ⍥(
-    # R~ClearBackground BCol
-    # R~DrawRectangle RRect
-    R~DrawPixel
+    R~DrawPixel : WCol
+
+    R~GetMousePosition
   ) R~IsMouseButtonReleased 0
+
+  # RIGHT CLICK
+
+  ⍥(
+    R~ClearBackground BCol
+  ) R~IsMouseButtonReleased 1
 
   R~EndDrawing
 | ¬R~WindowShouldClose
