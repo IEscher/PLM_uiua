@@ -4,8 +4,13 @@ Rl ← &ffi ⊂□DllPath
 
 # Structs
 
+VoidPtr ← "unsigned long long"
 VectorII ← "{float; float}"
+VectorIII ← "{float; float; float}"
 Color ← "{unsigned char; unsigned char; unsigned char; unsigned char}"
+Image ← $"{_; int; int; int; int}" VoidPtr
+TextureIID ← "{unsigned int; int; int; int; int; int}"
+Rectangle ← "{float; float; float; float}"
 
 # Core Module
 
@@ -17,6 +22,8 @@ GetTime ← (Rl {"int" "GetTime"} {})
 GetFPS ← (Rl {"int" "GetFPS"} {})
 WindowShouldClose ← (Rl {"int" "WindowShouldClose"} {})
 CloseWindow ← (◌Rl {"void" "CloseWindow"} {})
+SetWindowOpacity ← ◌Rl {"void" "SetWindowOpacity" "float"} {∘}
+SetWindowIcon ← ◌Rl {"void" "SetWindowIcon" Image} {∘}
 
 BeginDrawing ← (◌Rl {"void" "BeginDrawing"} {})
 EndDrawing ← (◌Rl {"void" "EndDrawing"} {})
@@ -32,7 +39,7 @@ SetMousePosition ← ◌Rl {"void" "SetMousePosition" "int" "int"} {°⊟⁅}
 ShowCursor ← (◌Rl {"void" "ShowCursor"} {})
 HideCursor ← (◌Rl {"void" "HideCursor"} {})
 
-KeyCode ↚ ⟨∘|-@\0⌵⟩÷2type.
+KeyCode ↚ ⍥(-@\0⌵)÷2type.
 IsKeyPressed ← Rl {"char" "IsKeyPressed" "int"} {KeyCode}
 IsKeyPressedRepeat ← Rl {"char" "IsKeyPressedRepeat" "int"} {KeyCode}
 IsKeyDown ← Rl {"char" "IsKeyDown" "int"} {KeyCode}
@@ -142,7 +149,23 @@ DrawPoly ← ◌Rl {"void" "DrawPoly" VectorII "int" "float" "float" Color} {⊙
 # center, sides, radius, rotation, color
 DrawPolyLines ← ◌Rl {"void" "DrawPolyLines" VectorII "int" "float" "float" Color} {⊙⊙⊙⊙∘}
 
+DrawCube ← ◌Rl {"void" "DrawCubeV" VectorIII VectorIII Color} {⊙⊙∘}
+
 # Textures Module
 
 # text, position, size, color
 DrawText ← ◌Rl {"void" "DrawText" "const char*" "int" "int" "int" Color} {⊓(∘|°⊟⁅|⊙∘)}
+
+LoadImageFromMemory ← Rl {Image "LoadImageFromMemory" "const char*" "const unsigned char:2" "int"} {⊙∘}
+
+LoadImageFromScreen ← (Rl {Image "LoadImageFromScreen"} {})
+
+LoadTexture ← Rl {TextureIID "LoadTexture" "const char*"} {∘}
+
+LoadTextureFromImage ← Rl {TextureIID "LoadTextureFromImage" Image} {∘}
+
+UpdateTexture ← ◌Rl {"void" "UpdateTexture" TextureIID $"const _" VoidPtr} {⊙∘}
+
+DrawTexture ← ◌Rl {"void" "DrawTextureV" TextureIID VectorII Color} {⊙⊙∘}
+
+MeasureText ← Rl {"int" "MeasureText" "const char*" "int"} {⊙∘}
