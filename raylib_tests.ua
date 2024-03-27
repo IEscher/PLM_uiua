@@ -74,7 +74,7 @@ Button ← ()
 
   R~EndDrawing
 
-  R~SetWindowIcon LogoImage # R~LoadImageFromScreen # 
+  R~SetWindowIcon R~LoadImageFromScreen # 
 | ¬R~WindowShouldClose
 )
 R~CloseWindow

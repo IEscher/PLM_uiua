@@ -1,13 +1,17 @@
 # Experimental!
 R ~ "rayua"
 
-R~InitWindow [800 450] "Simple Drawing"
+R~InitWindow [800 800] "Simple Drawing"
 R~SetTargetFPS 165
 
 BCol ← [..0 255]
 WCol ← [...255]
 
-R~GetMousePosition
+map {"Color" "MousePos"} {WCol R~GetMousePosition}
+
+?
+
+# R~GetMousePosition
 
 ⍢(
   R~BeginDrawing
@@ -15,33 +19,30 @@ R~GetMousePosition
   # PRESSED
 
   ⍥(
-    R~DrawPixel R~GetMousePosition WCol
+    R~DrawPixel R~GetMousePosition get "Color" .
 
-    ◌
-    R~GetMousePosition
+    insert "MousePos" R~GetMousePosition
   ) R~IsMouseButtonPressed 0
 
   # DOWN
 
   ⍥(
-    R~DrawLine R~GetMousePosition : WCol
+    R~DrawLine R~GetMousePosition get "MousePos" , get "Color" .
 
-    R~GetMousePosition
+    insert "MousePos" R~GetMousePosition
   ) R~IsMouseButtonDown 0
 
   # RELEASE
 
   ⍥(
-    R~DrawPixel : WCol
-
-    R~GetMousePosition
+    R~DrawPixel get "MousePos" , get "Color" .
   ) R~IsMouseButtonReleased 0
 
   # RIGHT CLICK
 
   ⍥(
     R~ClearBackground BCol
-  ) R~IsMouseButtonReleased 1
+  ) R~IsMouseButtonPressed 1
 
   R~EndDrawing
 | ¬R~WindowShouldClose
