@@ -2,6 +2,8 @@
 DllPath ← "/usr/lib/libraylib.so"
 Rl ← &ffi ⊂□DllPath
 
+Ptr ← $"_*"
+Str ← "const char*"
 # Structs
 
 VoidPtr ← "unsigned long long"
@@ -15,7 +17,7 @@ Rectangle ← "{float; float; float; float}"
 # Core Module
 
 # window size, window title
-InitWindow ← ◌Rl {"void" "InitWindow" "int" "int" "const char*"} {⊓°⊟∘}
+InitWindow ← ◌Rl {"void" "InitWindow" "int" "int" Str} {⊓°⊟∘}
 SetTargetFPS ← ◌Rl {"void" "SetTargetFPS" "int"} {∘}
 GetFrameTime ← (Rl {"int" "GetFrameTime"} {})
 GetTime ← (Rl {"int" "GetTime"} {})
@@ -154,13 +156,13 @@ DrawCube ← ◌Rl {"void" "DrawCubeV" VectorIII VectorIII Color} {⊙⊙∘}
 # Textures Module
 
 # text, position, size, color
-DrawText ← ◌Rl {"void" "DrawText" "const char*" "int" "int" "int" Color} {⊓(∘|°⊟⁅|⊙∘)}
+DrawText ← ◌Rl {"void" "DrawText" Str "int" "int" "int" Color} {⊓(∘|°⊟⁅|⊙∘)}
 
-LoadImageFromMemory ← Rl {Image "LoadImageFromMemory" "const char*" "const unsigned char:2" "int"} {⊙∘}
+LoadImageFromMemory ← Rl {Image "LoadImageFromMemory" Str "const unsigned char:2" "int"} {⊙∘}
 
 LoadImageFromScreen ← (Rl {Image "LoadImageFromScreen"} {})
 
-LoadTexture ← Rl {TextureIID "LoadTexture" "const char*"} {∘}
+LoadTexture ← Rl {TextureIID "LoadTexture" Str} {∘}
 
 LoadTextureFromImage ← Rl {TextureIID "LoadTextureFromImage" Image} {∘}
 
@@ -168,4 +170,4 @@ UpdateTexture ← ◌Rl {"void" "UpdateTexture" TextureIID $"const _" VoidPtr} {
 
 DrawTexture ← ◌Rl {"void" "DrawTextureV" TextureIID VectorII Color} {⊙⊙∘}
 
-MeasureText ← Rl {"int" "MeasureText" "const char*" "int"} {⊙∘}
+MeasureText ← Rl {"int" "MeasureText" Str "int"} {⊙∘}
