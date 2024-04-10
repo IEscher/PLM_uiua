@@ -13,16 +13,36 @@ Nous avons choisi le langage `Uiua`. C'est un langage de programmation orienté 
 
 Il est très concis et permet d'effectuer des opérations sur des listes d'éléments plutôt que sur des éléments individuels.
 
-La plupart des fonctions intégrées à Uiua sont représentées par des symboles, ce qui rend la lecture du code plus difficile mais permet de réduire la taille du code. Les symboles sont toutefois choisis pour repésenter au mieux la fonction (example `sin` est associé à `∿`).
+<!---
+Montrer l'example du logo de Uiua
+-->
+
+La plupart des fonctions intégrées à Uiua sont représentées par des symboles, ce qui rend la lecture du code plus difficile mais permet de réduire la taille du code. Les symboles sont toutefois choisis pour repésenter au mieux la fonction (example `sin` est associé à `∿`). 
 
 Afin de ne pas avoir à utiliser un clavier spécial, les fonctions sont aussi accessibles via leur nom. L'outil de compilation permet d'automatiquement remplacer les noms par les symboles correspondants. 
 
+<!--- 
+Montrer plusieurs symboles et leur nom associé
+-->
+
 Malgré les symboles, l'intégration aux environnements de développement permet de voir les symboles sous forme de texte ainsi qu'une partie de la documentation associée.
+
+<!---
+Screenshot de l'intégration dans VSCode
+-->
 
 ## Types de données
 Uiua ne possède que quelques types de données: les nombres, les charactères, les listes et les "box". Les nombres peuvent être des entiers, des flottants et des nombres complexes. Les caractères sont des caractères unicode. Les listes sont des listes d'éléments de même type. Et les "box" permettent de stocker des éléments de différents types dans une même liste. Un grande partie des fonctions sont dites "pervasives" afin de pouvoir manipuler une liste de box sans avoir besoin de les déballer.
 
+<!---
+Montrer les représentations des types de données dans la console
+-->
+
 Les chaines de caractères sont représentées par des listes de charactères mais du sucre syntaxique est disponible pour les déclarer. Une liste de box peut aussi être déclarée de manière plus lisible.
+
+<!---
+Montrer la déclaration de chaines de caractères et de listes de box manuelle et avec le sucre syntaxique
+-->
 
 ## Fonctions
 Les fonctions sont définies par des symboles ou des noms. Il n'a pas de paramètres nommés: ils sont directement extraits du stack et les valeur de retour sont placées sur le stack. La plupart du temps la signature est inférée par le compilateur mais il est parfois nécessaire de spécifier le nombre de paramètres attendus et retournés (par example pour les fonctions récursives).
@@ -32,6 +52,9 @@ Uiua possède un certain nombre de fonctions système qui permettent d'accéder 
 
 ### Foreign Function Interface
 Il est aussi possible d'appeler des fonctions définies dans des librairies externes. Cela permet d'étendre les fonctionnalités de Uiua en utilisant des librairies écrites en Rust, C ou C++ par exemple.
+
+# Motivation du choix
+Le paradigme est totalement différent de ce que nous avons l'habitude de voir ce qui force un changement drastique de réflexion. Les possibilités avec les types de médias nous ont aussi beaucoup intéressé pour le projet.
 
 
 # Utilisation du langage
