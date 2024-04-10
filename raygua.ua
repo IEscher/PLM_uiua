@@ -49,11 +49,11 @@ GuiScrollPanel ← ◌ °{⊙⊙∘} Lib {"int" "GuiScrollPanel" R~Rectangle R~S
 GuiLabel ← ◌ Lib {"int" "GuiLabel" R~Rectangle R~Str} {⊙∘}
 GuiButton ← Lib {"int" "GuiButton" R~Rectangle R~Str} {⊙∘}
 GuiLabelButton ← Lib {"int" "GuiLabelButton" R~Rectangle R~Str} {⊙∘}
-GuiToggle ← °□⊡1 Lib {"int" "GuiToggle" R~Rectangle R~Str "int*"} {⊙⊙∘}
-GUiToggleGroup ← °□⊡1 Lib {"int" "GuiToggleGroup" R~Rectangle R~Str "int*"} {⊙⊙∘}
+GuiToggle ← ◌ °{⊙∘} Lib {"int" "GuiToggle" R~Rectangle R~Str "int*"} {⊙⊙∘}
+GUiToggleGroup ← ◌ °{⊙∘} Lib {"int" "GuiToggleGroup" R~Rectangle R~Str "int*"} {⊙⊙∘}
 GuiToggleSlider ← °{⊙∘} Lib {"int" "GuiToggleSlider" R~Rectangle R~Str "int*"} {⊙⊙∘}
 GuiCheckBox ← °{⊙∘} Lib {"int" "GuiCheckBox" R~Rectangle R~Str "int*"} {⊙⊙∘}
-GuiComboBox ← °□⊡1 Lib {"int" "GuiComboBox" R~Rectangle R~Str "int*"} {⊙⊙∘}
+GuiComboBox ← ◌ °{⊙∘} Lib {"int" "GuiComboBox" R~Rectangle R~Str "int*"} {⊙⊙∘}
 
 # RAYGUIAPI int GuiDropdownBox(Rectangle bounds, const char *text, int *active, bool editMode);          // Dropdown Box control
 # RAYGUIAPI int GuiSpinner(Rectangle bounds, const char *text, int *value, int minValue, int maxValue, bool editMode); // Spinner control
@@ -72,9 +72,9 @@ GuiTextBox ← °{⊙∘} Lib {"int" "GuiTextBox" R~Rectangle "char*" "int" "int
 # RAYGUIAPI int GuiDummyRec(Rectangle bounds, const char *text);                                         // Dummy control for placeholders
 # RAYGUIAPI int GuiGrid(Rectangle bounds, const char *text, float spacing, int subdivs, Vector2 *mouseCell); // Grid control
 
-GuiSlider ← °{⊙∘} Lib {"int" "GuiSlider" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
+GuiSlider ← °{⊙∘} Lib {"int" "GuiSlider" R~Rectangle R~Str R~Str "int*" "float" "float"} {⊙⊙⊙⊙⊙∘}
 GuiSliderBar ← °{⊙∘} Lib {"int" "GuiSliderBar" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
-GuiProgressBar ← °□⊡1 Lib {"int" "GuiProgressBar" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
+GuiProgressBar ← ◌ °{⊙∘} Lib {"int" "GuiProgressBar" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
 GuiStatusBar ← ◌ Lib {"int" "GuiStatusBar" R~Rectangle R~Str} {⊙∘}
 GuiDummyRec ← ◌ Lib {"int" "GuiDummyRec" R~Rectangle R~Str} {⊙∘}
 GuiGrid ← °{⊙∘} Lib {"int" "GuiGrid" R~Rectangle R~Str "float" "int" VecIIPtr} {⊙⊙⊙⊙∘}
