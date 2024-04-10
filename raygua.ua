@@ -29,11 +29,21 @@ GuiIsLocked ← (Lib {"bool" "GuiIsLocked"} {})
 # RAYGUIAPI int GuiTabBar(Rectangle bounds, const char **text, int count, int *active);                  // Tab Bar control, returns TAB to be closed or -1
 # RAYGUIAPI int GuiScrollPanel(Rectangle bounds, const char *text, Rectangle content, Vector2 *scroll, Rectangle *view); // Scroll Panel control 
 
+# bounds: `Rectangle`, title: `Str`
 GuiWindowBox ← Lib {"int" "GuiWindowBox" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`
 GuiGroupBox ← ◌ Lib {"int" "GuiGroupBox" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`
 GuiLine ← ◌ Lib {"int" "GuiLine" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`
 GuiPanel ← ◌ Lib {"int" "GuiPanel" R~Rectangle R~Str} {⊙∘}
-GuiTabBar ← °{⊙∘} Lib {"int" "GuiTabBar" R~Rectangle "const char*:2" "int" "int*"} {⊙∘}
+# bounds: `Rectangle`, text: `Str` Tab titles separated by `;`, active: `int`
+# 
+# Returns the of the tab that should be closed and the index of the active tab
+GuiTabBar ← °{⊙∘} Lib {"int" "GuiTabBar" R~Rectangle "const char*:2" "int" "int*"} {⊙⊙∘}
+# bounds: `Rectangle`, text: `Str`, content: `Rectangle`, scroll: `Vector2`, view: `Rectangle`
+# 
+# Returns the new scroll position and the new view rectangle
 GuiScrollPanel ← ◌ °{⊙⊙∘} Lib {"int" "GuiScrollPanel" R~Rectangle R~Str R~Rectangle VecIIPtr RectPtr} {⊙⊙⊙⊙∘}
 
 # // Basic controls set
@@ -46,13 +56,35 @@ GuiScrollPanel ← ◌ °{⊙⊙∘} Lib {"int" "GuiScrollPanel" R~Rectangle R~S
 # RAYGUIAPI int GuiCheckBox(Rectangle bounds, const char *text, bool *checked);                          // Check Box control, returns true when active
 # RAYGUIAPI int GuiComboBox(Rectangle bounds, const char *text, int *active);                            // Combo Box control
 
+# bounds: `Rectangle`, text: `Str`
 GuiLabel ← ◌ Lib {"int" "GuiLabel" R~Rectangle R~Str} {⊙∘}
-GuiButton ← Lib {"int" "GuiButton" R~Rectangle R~Str} {⊙∘}
-GuiLabelButton ← Lib {"int" "GuiLabelButton" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`
+# 
+# Returns 1 when clicked
+GuiButton ← °{∘} Lib {"int" "GuiButton" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`
+# 
+# Returns 1 when clicked
+GuiLabelButton ← °{∘} Lib {"int" "GuiLabelButton" R~Rectangle R~Str} {⊙∘}
+# bounds: `Rectangle`, text: `Str`, active: `bool`
+# 
+# Returns the new state of the toggle
 GuiToggle ← ◌ °{⊙∘} Lib {"int" "GuiToggle" R~Rectangle R~Str "int*"} {⊙⊙∘}
+# bounds: `Rectangle`, text: `Str` Toggle labels separated by `;`, active: `int`
+# 
+# Returns the new active index
 GUiToggleGroup ← ◌ °{⊙∘} Lib {"int" "GuiToggleGroup" R~Rectangle R~Str "int*"} {⊙⊙∘}
+# bounds: `Rectangle`, text: `Str` Value labels separated by `;`, active: `int`
+# 
+# Returns if the state changed and the new active index
 GuiToggleSlider ← °{⊙∘} Lib {"int" "GuiToggleSlider" R~Rectangle R~Str "int*"} {⊙⊙∘}
+# bounds: `Rectangle`, text: `Str`, active: `bool`
+# 
+# Returns if the state changed and the new state of the checkbox
 GuiCheckBox ← °{⊙∘} Lib {"int" "GuiCheckBox" R~Rectangle R~Str "int*"} {⊙⊙∘}
+# bounds: `Rectangle`, text: `Str` Value labels separated by `;`, active: `int`
+# 
+# Returns the new active index
 GuiComboBox ← ◌ °{⊙∘} Lib {"int" "GuiComboBox" R~Rectangle R~Str "int*"} {⊙⊙∘}
 
 # RAYGUIAPI int GuiDropdownBox(Rectangle bounds, const char *text, int *active, bool editMode);          // Dropdown Box control
