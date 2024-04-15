@@ -57,11 +57,16 @@ Il est aussi possible d'appeler des fonctions définies dans des librairies exte
 Le paradigme est totalement différent de ce que nous avons l'habitude de voir ce qui force un changement drastique de réflexion. Les possibilités avec les types de médias nous ont aussi beaucoup intéressé pour le projet.
 
 
-# Utilisation du langage
-Notre but est de créer un programme permettant de générer des images de manière
-paramétrique grâce à une librairie permettant une interface graphique tel que rayLib ou Dear
-ImGui. Uiua permet l'utilisation de « Foreign Function Interface » qui vont être nécessaire à
-l'utilisation de ces librairies. En fonction de la librairie choisie, ces FFI devront être implémentées
-par nos soins.
-Le principe est de permettre à l'utilisateur de pouvoir profiter des avantages de Uiua dans la
-génération d'images à travers une interface graphique simple à utiliser.
+# Projet
+Notre projet consiste en une application graphique permettant de générer des images de manière paramétrique. L'interface graphique sera réalisée en utilisant la librairie `raylib` et permettra de démontrer les capacitées de la `FFI`. La génération d'image permet de montrer les capacités de manipulation de données multi-dimensionelles du language, les fonctions de manipulation de format d'image ainsi que les fonctions système pour la sauvegarde de fichiers.
+
+# Aperçu du cahier des charges
+
+- Interface graphique simple
+    - Modification en temps réel des paramètres
+- Génération d'images paramétriques
+    - Formes pré-définies (cercles, carrés, ...)
+    - Courbes paramétriques (Bézier)
+- Sauvegarde des images générées
+    - Choix du format (PNG, JPEG, BMP, ICO, QOI)
+    - Choix du nom
