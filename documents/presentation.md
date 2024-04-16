@@ -1,3 +1,4 @@
+<!---
 Le contenu attendu des présentation et rapports intermédiaires est:
 
 - présentation du langage et motivation du choix
@@ -6,7 +7,7 @@ Le contenu attendu des présentation et rapports intermédiaires est:
 - aperçu du cahier des charges
 
 Le temps alloué est au maximum de 15 minutes, le contenu du rapport de 4 pages au maximum.
-
+-->
 
 # Présentation du langage
 Nous avons choisi le langage `Uiua`. C'est un langage de programmation orienté liste et basé sur l'utilisation d'un stack. Il est fortement influencé par `APL` et `BQN`. Le langage est à la fois interprétable et compilable. L'interpréteur et le compilateur sont écrit en `Rust` et est disponible sur [`crates.io`](https://crates.io/crates/uiua). Il est aussi intégrable en tant que librairie dans un projet `Rust`.
