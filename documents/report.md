@@ -51,6 +51,10 @@ Les fonctions sont définies par des symboles ou des noms. Il n'a pas de paramè
 ## Fonctions système
 Uiua possède un certain nombre de fonctions système qui permettent d'accéder à des fonctionnalités de bas niveau (système de fichiers, sockets, appel de commandes) ainsi que des fonctions pour différent types de médias (images, sons et gifs).
 
+<!---
+Montrer les deux slides de présentation des fonctions
+-->
+
 ### Foreign Function Interface
 Il est aussi possible d'appeler des fonctions définies dans des librairies externes. Cela permet d'étendre les fonctionnalités de Uiua en utilisant des librairies écrites en Rust, C ou C++ par exemple.
 
