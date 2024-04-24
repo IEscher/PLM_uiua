@@ -1,5 +1,5 @@
 # Experimental!
-DllPath ← "/usr/lib/libraylib.so"
+DllPath ← "/usr/local/lib/libraylib.so"
 Rl ← &ffi ⊂□DllPath
 
 Ptr ← $"_*"
