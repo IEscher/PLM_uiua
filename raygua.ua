@@ -105,7 +105,7 @@ GuiTextBox ← °{⊙∘} Lib {"int" "GuiTextBox" R~Rectangle "char*" "int" "int
 # RAYGUIAPI int GuiGrid(Rectangle bounds, const char *text, float spacing, int subdivs, Vector2 *mouseCell); // Grid control
 
 GuiSlider ← °{⊙∘} Lib {"int" "GuiSlider" R~Rectangle R~Str R~Str "int*" "float" "float"} {⊙⊙⊙⊙⊙∘}
-GuiSliderBar ← °{⊙∘} Lib {"int" "GuiSliderBar" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
+GuiSliderBar ← °{⊙∘} Lib {"int" "GuiSliderBar" R~Rectangle R~Str R~Str "int*" "float" "float"} {⊙⊙⊙⊙⊙∘}
 GuiProgressBar ← ◌ °{⊙∘} Lib {"int" "GuiProgressBar" R~Rectangle R~Str R~Str "float*" "float" "float"} {⊙⊙⊙⊙⊙∘}
 GuiStatusBar ← ◌ Lib {"int" "GuiStatusBar" R~Rectangle R~Str} {⊙∘}
 GuiDummyRec ← ◌ Lib {"int" "GuiDummyRec" R~Rectangle R~Str} {⊙∘}
