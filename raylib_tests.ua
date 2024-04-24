@@ -12,31 +12,32 @@ R~BeginDrawing
 R~ClearBackground BgColor
 R~EndDrawing
 
-Xy ← °⍉⊞⊟. ÷÷2: -÷2,⇡.100
+Manip ~ "image-manip"
+Utils ~ "utils"
+
+IntervalRow ← ÷÷2: -÷2, ⇡.
+Xy ← °⍉⊞⊟ ∩IntervalRow 200 200
 # Gradient
-Rgb ← ([⊃(:°⊟×.|↯△⊢) (×∿◿τ now Xy) 0.5])
+Rgb ← (÷2+1[⊃(◌°⊟∿|+°⊟∿|◌:°⊟∿)Xy]) # ([⊃(:°⊟×.|↯△⊢) Xy 0.75])
 # U "Signed Distance Field"
 # Takes coordinates
 u ← ↥<0.2:>0.7.+×2 ×.:°⊟
 # Circle "Signed Distance Field"
 # Takes coordinates and radius
 c ← >⌵/ℂ
-Logo ← (⍉⊂:-⊃(¬u|c) Xy 1 +0.5 Rgb)
-LogoData ← (&ime "png" Logo)
-LogoImage ← (R~LoadImageFromMemory ".png" LogoData)
-# &fwa "logo.png" LogoData
+# Logo ← (⍉⊂:-⊃(¬u|c) Xy 1 +0.5 Rgb)
 
-LogoTexture ← R~LoadTextureFromImage LogoImage # R~LoadTexture "logo.png"
+Logo ← ⍉⊂: Manip~Apply {{1 {0.8}}} Xy Rgb
+
+LogoImage ← (Utils~LoadImage Logo)
+
+LogoTexture ← R~LoadTextureFromImage LogoImage
 
 White ← [...255]
 
 # Xyy ← ⍉⍉⊞⊟.÷⟜⇡100
 # F ← ⍉◿1⊂⊃(+/÷|÷3+1∿×τ+)Xyy
 # Frames = ∵F÷⟜⇡10
-
-# Rectangle, Colors [Default, Hover, Pressed]
-# Returns pressed state
-Button ← ()
 
 []
 ⍢(
@@ -53,7 +54,7 @@ Button ← ()
   # R~DrawCube [100 100 0] [100 100 1000] White
 
   R~UpdateTexture LogoTexture ⊡ 0 LogoImage
-  R~DrawTexture LogoTexture -[50 50] R~GetMousePosition White
+  R~DrawTexture LogoTexture -[100 100] R~GetMousePosition White
 
   # [0 (×R~IsMouseButtonDown 0 255) 127 255]
   # -:R~GetMousePosition ÷2.[200 150]
@@ -74,7 +75,7 @@ Button ← ()
 
   R~EndDrawing
 
-  R~SetWindowIcon R~LoadImageFromScreen # 
+  # R~SetWindowIcon R~LoadImageFromScreen #
 | ¬R~WindowShouldClose
 )
 R~CloseWindow
