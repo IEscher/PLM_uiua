@@ -18,6 +18,7 @@ Rectangle ← "{float; float; float; float}"
 
 # window size, window title
 InitWindow ← ◌Rl {"void" "InitWindow" "int" "int" Str} {⊓°⊟∘}
+SetWindowSize = ◌Rl {"void" "SetWindowSize" "int" "int"} {°⊟}
 SetTargetFPS ← ◌Rl {"void" "SetTargetFPS" "int"} {∘}
 GetFrameTime ← (Rl {"int" "GetFrameTime"} {})
 GetTime ← (Rl {"int" "GetTime"} {})
