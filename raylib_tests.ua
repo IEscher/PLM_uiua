@@ -27,7 +27,7 @@ u ← ↥<0.2:>0.7.+×2 ×.:°⊟
 c ← >⌵/ℂ
 # Logo ← (⍉⊂:-⊃(¬u|c) Xy 1 +0.5 Rgb)
 
-Logo ← ⍉⊂: Manip~Apply {{1 {0.8}}} Xy Rgb
+Logo ← ⍉⊂: Manip~Apply {{"Square" {0.8}}} Xy Rgb
 
 LogoImage ← (Utils~LoadImage Logo)
 
