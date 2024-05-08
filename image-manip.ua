@@ -32,16 +32,13 @@ Map! ↚^ (
   ) ⊙(0 {} {} "")                # ID keys values definitions
 
   ⟜⊓($"{_}" /($"\"_\" \"_\"")|$"[_]" /$"_ _") :
-
-  ⊙$"IdMapG ↚ map _ _ _"
+  ⊙$"IdMapG ↚ map _ _ _" # Create map defition and append function definitions
 
   ◇/$"_|_" ⇌
-
   stringify(get ⊙IdMapG ⊙: °□ °⊟ °□)
-  $"# instructions, coords\nApply ← ∧(⟨_⟩ _)" :
+  $"# instructions, coords\nApply ← ∧(⟨_⟩ _)" : # Create Apply definition
+
   $"_\n_" :
-  .
-  &p
 )
 
 Map!(
