@@ -16,10 +16,13 @@ Rectangle ← "{float; float; float; float}"
 
 # Core Module
 
+SetWindowFlag = ◌Rl {"void" "SetConfigFlags" "unsigned int"} {∘}
 # window size, window title
 InitWindow ← ◌Rl {"void" "InitWindow" "int" "int" Str} {⊓°⊟∘}
 SetWindowSize = ◌Rl {"void" "SetWindowSize" "int" "int"} {°⊟}
 SetTargetFPS ← ◌Rl {"void" "SetTargetFPS" "int"} {∘}
+GetScreenWidth = (Rl {"int" "GetScreenWidth"} {})
+GetScreenHeight = (Rl {"int" "GetScreenHeight"} {})
 GetFrameTime ← (Rl {"int" "GetFrameTime"} {})
 GetTime ← (Rl {"int" "GetTime"} {})
 GetFPS ← (Rl {"int" "GetFPS"} {})
