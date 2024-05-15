@@ -1,6 +1,7 @@
 # Experimental!
 R ~ "rayua"
 
+R~SetWindowFlag 4
 R~InitWindow [800 800] "Simple Drawing"
 R~SetTargetFPS 165
 

@@ -21,7 +21,7 @@
 
 R ~ "rayua"
 
-map {"Resolution"} {[600 600]}
+map {"Resolution"} {[6 4]}
 
 R~SetWindowFlag 4
 R~InitWindow : "Simple Drawing" °□ get "Resolution" .
@@ -30,22 +30,48 @@ R~SetTargetFPS 60
 
 White ← [...255]
 
+# Take the main map in parameter
 Interval ← ÷÷2: -÷2,⇡.
-Xy ← °⍉⊞⊟ ∩Interval °⊟ °□ get "Resolution"
-Image ← ⍉ ÷ 4 + 2 /+Xy
+Xy ← °⍉⊞⊟ ∩Interval °⊟ °□ get "Resolution" 
+ImageTest ← ⍉ ÷ 4 + 2 /+Xy
 
-ImageTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "png" Image)
+ImageBW ← [
+  [1 1 1]
+  [127 127 127]
+  [255 255 255]]
 
-R~SetWindowSize [600 600]
+ImageRGB ← [
+  [[255 0 0 255] [0 255 0 255] [0 0 255 255]]
+  [[255 0 0 127] [0 255 0 127] [0 0 255 127]]
+  [[255 0 0 0] [0 255 0 0] [0 0 255 0]]]
 
-⍢(
-  R~BeginDrawing
+BlackWhiteToRGBA ← (≡≡⊂:[255] ∵(⊂⊟.) .)
 
-  insert "Resolution" [R~GetScreenWidth R~GetScreenHeight]
+# Take an array in parameter
+ImageToTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "png")
 
-  R~DrawTexture : [0 0] : White ImageTexture .
+R~SetWindowSize °□ get "Resolution" .
 
-  R~EndDrawing
-| ¬R~WindowShouldClose
-)
+# ⍢(
+#   R~BeginDrawing
+
+#   insert "Resolution" [R~GetScreenWidth R~GetScreenHeight]
+
+#   R~DrawTexture : [0 0] : White ImageToTexture BlackWhiteToRGBA ImageTest .
+
+#   R~EndDrawing
+# | ¬R~WindowShouldClose
+# )
+
+# ImageRGB
+# BlackWhiteToRGBA ImageBW
+# ImageToTexture ImageTest .
+
+BlackImageFromResolution ← ≡≡⊂:[255] ↯⊂:[3] °□ get "Resolution" : ↯⟜⊚ 1
+BlackImageFromResolution .
+
+# ≡≡⊂:[255] ↯[3 6 3] ↯⟜⊚ 1
+
+# ⇡. °⊟ °□ get "Resolution"
+
 R~CloseWindow
