@@ -1,5 +1,8 @@
 # Experimental!
 R ~ "rayua"
+Manip ~ "image-manip"
+
+R~SetTraceLogLevel 7
 
 Time ← ($"_:_:_"°[⊙⊙∘]≡(⬚@0↙¯2°⋕) ⌊[◿12 ⍥(⊃÷◿60)2 now])
 
@@ -12,8 +15,7 @@ R~BeginDrawing
 R~ClearBackground BgColor
 R~EndDrawing
 
-Manip ~ "image-manip"
-Utils ~ "utils"
+LoadImage ← R~LoadImageFromMemory ".qoi" &ime "qoi"
 
 IntervalRow ← ÷÷2: -÷2, ⇡.
 Xy ← °⍉⊞⊟ ∩IntervalRow 200 200
@@ -27,9 +29,9 @@ u ← ↥<0.2:>0.7.+×2 ×.:°⊟
 c ← >⌵/ℂ
 # Logo ← (⍉⊂:-⊃(¬u|c) Xy 1 +0.5 Rgb)
 
-Logo ← ⍉⊂: Manip~Apply {{"Square" {0.8}}} Xy Rgb
+Logo ← ⍉⊂: Manip~Apply {{"Circle" {0.8}}} Xy Rgb # c Xy 0.8 Rgb #
 
-LogoImage ← (Utils~LoadImage Logo)
+LogoImage ← (LoadImage Logo)
 
 LogoTexture ← R~LoadTextureFromImage LogoImage
 
