@@ -43,3 +43,27 @@ Manip~Resize ⊙({20 20})
 # &ims ⍉ .
 Manip~Move ⊙(|0 {5 5})
 &ims ⍉
+
+Manip~Circle CoordMatrix 10 10 {1}
+.
+∩(Manip~Resize ⊙({30 35}))
+Manip~Move ⊙(|0 {5 5})
+⊙(Manip~Move ⊙(|0 {15 5}))
+∩([.])
+AddColors
+
+Manip~Square CoordMatrix 5 5 {}
+...
+∩∩(Manip~Resize ⊙({30 35}))
+Manip~Move ⊙(|0 {13 10})
+⊙(Manip~Move ⊙(|0 {13 15}))
+⊙⊙(Manip~Move ⊙(|0 {13 20}))
+⊙⊙⊙(Manip~Move ⊙(|0 {13 25}))
+∩∩([.])
+∩AddColors
+AddColors
+AddColors
+
+°⍉≡≡(↘1)⍉
+⍉ ×(C [0 255 0])
+&ims
