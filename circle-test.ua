@@ -36,3 +36,10 @@ Manip~CircleGrad CoordMatrix 50 50 {0.5}
 # Export
 
 # ×255 AddColors C[255 0 63.75 63.75] C[0 255 0 127.5]
+
+Manip~Square CoordMatrix 5 5 {}
+[..]
+Manip~Resize ⊙({20 20})
+# &ims ⍉ .
+Manip~Move ⊙(|0 {5 5})
+&ims ⍉
