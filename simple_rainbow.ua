@@ -32,7 +32,7 @@ White ← [...255]
 
 # Take the main map in parameter
 Interval ← ÷÷2: -÷2,⇡.
-Xy ← °⍉⊞⊟ ∩Interval °⊟ °□ get "Resolution" 
+Xy ← °⍉⊞⊟ ∩Interval °⊟ °□ get "Resolution"
 ImageTest ← ⍉ ÷ 4 + 2 /+Xy
 
 ImageBW ← [
@@ -52,26 +52,28 @@ ImageToTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "pn
 
 R~SetWindowSize °□ get "Resolution" .
 
-# ⍢(
-#   R~BeginDrawing
+⍢(
+  R~BeginDrawing
 
-#   insert "Resolution" [R~GetScreenWidth R~GetScreenHeight]
+  insert "Resolution" [R~GetScreenWidth R~GetScreenHeight]
 
-#   R~DrawTexture : [0 0] : White ImageToTexture BlackWhiteToRGBA ImageTest .
+  R~DrawTexture : [0 0] : White ImageToTexture BlackWhiteToRGBA ImageTest .
 
-#   R~EndDrawing
-# | ¬R~WindowShouldClose
-# )
+  R~EndDrawing
+| ¬R~WindowShouldClose
+)
+
+R~CloseWindow
 
 # ImageRGB
 # BlackWhiteToRGBA ImageBW
 # ImageToTexture ImageTest .
 
-BlackImageFromResolution ← ≡≡⊂:[255] ↯⊂:[3] °□ get "Resolution" : ↯⟜⊚ 1
-BlackImageFromResolution .
+# BlackImageFromResolution ← ≡≡⊂:[255] ↯⊂:[3] °□ get "Resolution" : ↯⟜⊚ 1
+# BlackImageFromResolution .
 
 # ≡≡⊂:[255] ↯[3 6 3] ↯⟜⊚ 1
 
 # ⇡. °⊟ °□ get "Resolution"
 
-R~CloseWindow
+# BlackWhiteToRGBA ImageTest .
