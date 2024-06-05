@@ -31,7 +31,7 @@ Map! ↚^ (
   | $"_\n_" : $"_ ← _" ◇°⊟ ⊙⋅⋅⋅∘ # Create function definition
   ) ⊙(0 {} {} "")                # ID keys values definitions
 
-  ⟜⊓($"{_}" /($"\"_\" \"_\"")|$"[_]" /$"_ _") :
+  ⟜⊓($"{_}" ∧($"\"_\" _") :""|$"[_]" /($"_ _" :)) :
   ⊙$"IdMapG ↚ map _ _ _" # Create map defition and append function definitions
 
   ◇/$"_|_" ⇌
@@ -41,9 +41,17 @@ Map! ↚^ (
   $"_\n_" :
 )
 
+Concat ← ♭/◇⊂ ⊟ ∩□
+
 Map!(
   Circle
 | >⌵/ℂ ⊙(°{∘} °□)
 | Square
 | ↯△⊢ ⊙(1 ◌)
+| CircleGrad
+| ↧+:1¯⌵/ℂ ⊙(°{∘} °□)
+| Resize
+| ⬚0 ↙Concat ⇌↘2⇌△ ⟜: ⊙[:°{⊙∘} °□] # ⬚0 ↙♭/◇⊂ ⊟: □[°{⊙∘} °□]: □(⇌↘2⇌△)⟜: #
+| Move
+| ⬚0 ↻Concat ×0⇡-2⧻△ ⟜: ⊙[:°{⊙∘} °□ ¯]
 )
