@@ -20,6 +20,7 @@
 # } ConfigFlags;
 
 R ~ "rayua"
+U ~ "utils"
 
 map {"Resolution"} {[6 4]}
 
@@ -45,10 +46,10 @@ ImageRGB ← [
   [[255 0 0 127] [0 255 0 127] [0 0 255 127]]
   [[255 0 0 0] [0 255 0 0] [0 0 255 0]]]
 
-BlackWhiteToRGBA ← (≡≡⊂:[255] ∵(⊂⊟.) .)
+# BlackWhiteToRGBA ← (≡≡⊂:[255] ∵(⊂⊟.) .)
 
 # Take an array in parameter
-ImageToTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "png")
+# ImageToTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "png")
 
 R~SetWindowSize °□ get "Resolution" .
 
@@ -57,7 +58,7 @@ R~SetWindowSize °□ get "Resolution" .
 
   insert "Resolution" [R~GetScreenWidth R~GetScreenHeight]
 
-  R~DrawTexture : [0 0] : White ImageToTexture BlackWhiteToRGBA ImageTest .
+  R~DrawTexture : [0 0] : White U~ImageToTexture U~BlackWhiteToRGBA ImageTest .
 
   R~EndDrawing
 | ¬R~WindowShouldClose
