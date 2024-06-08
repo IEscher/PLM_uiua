@@ -48,6 +48,8 @@ Map!(
 | >⌵/ℂ ⊙(°{∘} °□)
 | Square
 | ↯△⊢ ⊙(1 ◌)
+| Rectangle
+| ⬚1 ↯ :[] ⇌↘1 △ ⊙◌
 | CircleGrad
 | ↧+:1¯⌵/ℂ ⊙(°{∘} °□)
 | Resize
