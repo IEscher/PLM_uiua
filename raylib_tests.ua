@@ -19,8 +19,9 @@ LoadImage ← R~LoadImageFromMemory ".qoi" &ime "qoi"
 
 IntervalRow ← ÷÷2: -÷2, ⇡.
 Xy ← °⍉⊞⊟ ∩IntervalRow 200 200
+M ← ×∿◿τ
 # Gradient
-Rgb ← (÷2+1[⊃(◌°⊟∿|+°⊟∿|◌:°⊟∿)Xy]) # ([⊃(:°⊟×.|↯△⊢) Xy 0.75])
+Rgb ← (÷2+1[⊃(◌°⊟∿ M ÷2now|+°⊟∿|◌:°⊟∿ M now) Xy]) # ([⊃(:°⊟×.|↯△⊢) Xy 0.75])
 # U "Signed Distance Field"
 # Takes coordinates
 u ← ↥<0.2:>0.7.+×2 ×.:°⊟
@@ -29,7 +30,7 @@ u ← ↥<0.2:>0.7.+×2 ×.:°⊟
 c ← >⌵/ℂ
 # Logo ← (⍉⊂:-⊃(¬u|c) Xy 1 +0.5 Rgb)
 
-Logo ← ⍉⊂: Manip~Apply {{"Circle" {0.8}}} Xy Rgb # c Xy 0.8 Rgb #
+Logo ← (⍉⊂: Manip~Apply {{"Circle" {0.8}}} Xy Rgb) # c Xy 0.8 Rgb #
 
 LogoImage ← (LoadImage Logo)
 
