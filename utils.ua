@@ -77,4 +77,27 @@ AffectH! ← (≡≡⍜⊡(◿360^!)0:)
 AffectS! ← (≡≡⍜⊡(Clamp^!)1:)
 AffectL! ← (≡≡⍜⊡(Clamp^!)2:)
 
-ShiftHue = AffectH!+
+ShiftHue ← AffectH!+
+
+Upscale ← ≡(⍜⊙⍉▽⟜▽)
+IntervalRow ↚ ÷÷2: -÷2, ⇡.
+CoordMatrix ← °⍉⊞⊟ ∩IntervalRow
+
+SepA ↚ ∩(⍜(⇌|⊃(↘1|↙1)))
+OneM ↚ +1¯
+
+Composite ← (
+  :
+  ⊙:SepA # y1 y2 a1 a2
+
+  ⊙⊙(
+    ,
+    .OneM×∩OneM
+    ⊙(⟨∘|0⟩ =NaN . ÷)
+    OneM.:
+  )
+
+  ⊙:  # y1 1-k y2 k ao
+  +∩× # co ao
+  ⊂
+)
