@@ -3,7 +3,7 @@ R ~ "rayua"
 RG ~ "raygua"
 U ~ "utils"
 
-map {"Toggled" "Slider" "DropState" "ToggleSlider" "BgColor" "Resolution"} {0 0.5 [0 0] 0 [0 0 0 255] [200 200]}
+map {"Resolution"} {[200 200]}
 
 # map {"Resolution"} {[6 4]}
 
