@@ -1,5 +1,8 @@
 # Experimental!
-DllPath ← "/usr/local/lib/libraylib.so"
+# "/usr/local/lib/libraylib.so"
+
+DllPath ← ⍣(&var "RAYLIB_PATH")($"_/libraylib._" WorkingDir DllExt)
+
 Rl ← &ffi ⊂□DllPath
 
 Ptr ← $"_*"

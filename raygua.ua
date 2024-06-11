@@ -1,7 +1,7 @@
 # Experimental!
 R ~ "rayua"
 
-DllPath ← "./raygui.so"
+DllPath ← ⍣(&var "RAYGUI_PATH")($"_/raygui._" WorkingDir DllExt)
 Lib ← &ffi ⊂□DllPath
 
 VecIIPtr ← R~Ptr R~VectorII
