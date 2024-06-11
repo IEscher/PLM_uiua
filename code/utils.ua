@@ -1,6 +1,8 @@
 # Experimental!
+
+# Various utility functions
+
 R ~ "rayua"
-RG ~ "raygua"
 
 # Makes a RGBA black image using a 1D array of 2 values
 BlackImageFromResolution ← ≡≡⊂:[255] ↯⊂:[3] : ↯⟜⊚ 1
@@ -10,8 +12,9 @@ BlackWhiteToRGBA ← (≡≡⊂:[255] ∵(⊂⊟.) .)
 Clamp ← ⍥(0◌)<0. ⍥(1◌)>1.
 # Clamp a value between 0 and 255
 ClampAlpha ← ⍥(0◌)<0. ⍥(255◌)>255.
-# # Clamp a value between 0 and 255
+# Clamp a value between 0 and 255
 # ClampH ← ⍥(0◌)<0. ⍥(360◌)>360.
+
 # Converts an array to a png renderable by Raylib
 ImageToTexture ← (R~LoadTextureFromImage R~LoadImageFromMemory ".png" &ime "png")
 
@@ -57,7 +60,7 @@ S ↚ ⟨÷-⌵(-1 ×2 MidRGB) : 1 ⟜(×2 (-MidRGB ⟜XMax))|0 ◌⟩ (+(=0MidR
 OldRGBtoHSL ← [H ⟜S ⟜L]
 
 # Convert RGB to HSL
-# Expexct RGB between 0 and 1
+# Expects RGB between 0 and 1
 RGBtoHSL ← (
   ⊃(/↥|/↧) .
 
@@ -91,11 +94,34 @@ HSLRGBf ↚ (
   +¯×↥¯1↧1↧+9¯⟜(-3)
 )
 
-HSLRGB ↚ (
+OldHSLRGB ↚ (
   ⍜([⊙⊙∘]|⇌)
   ×↧+1¯.⟜:
   ⊃(⊂0|⊂8|⊂4|⊂¯1)[⊙⊙∘]
   ↙3[∩∩(HSLRGBf)]
+)
+
+HSLRGB ↚ (
+  # h s l
+  ⊙(
+    ×⊙(+1¯⌵-1×2 .) # c l
+    .⟜(-÷2)        # c c m 
+  )
+  ÷60 # h' c c m
+
+  :×+1¯⌵-1◿2 ⊙: . # h' x c m
+
+  ⊗1 ≥:[1 2 3 4 5 6] # Case 1 to 6
+  # Case x c m
+  ⟨
+    [:⊙⊙0]
+  | [⊙⊙0]
+  | [0:⊙∘]
+  | [0⊙∘]
+  | [⊙(0∘)]
+  | [:0:⊙∘]
+  ⟩ # [r g b] m
+  +
 )
 
 HSLtoRGB ← HSLRGB °[⊙⊙∘]
