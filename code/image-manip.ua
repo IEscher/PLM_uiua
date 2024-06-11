@@ -1,5 +1,7 @@
 # Experimental!
 
+# Image manipulation functions
+
 # An Instruction is defined as an ID and an array of boxed values
 # Ex: 1 {50}
 
@@ -20,6 +22,11 @@
 #   ⟩ get : IdMap ⊙: °□ °⊟
 # )
 
+# Generate the above code without having to manually define the ID map and Apply function
+#
+# Expects a list of a function name followed by its definition
+#
+# Ex: Map!(Id | ∘ | Zero | 0)
 Map! ↚^ (
   ⊕□⌊÷:⇡⧻, 2 # Group arguments by 2 ({name definition})
   ◌ ∧⊃(
@@ -53,7 +60,7 @@ Map!(
 | CircleGrad
 | ↧+:1¯⌵/ℂ ⊙(°{∘} °□)
 | Resize
-| ⬚0 ↙Concat ⇌↘2⇌△ ⟜: ⊙[:°{⊙∘} °□] # ⬚0 ↙♭/◇⊂ ⊟: □[°{⊙∘} °□]: □(⇌↘2⇌△)⟜: #
+| ⬚0 ↙Concat ⇌↘2⇌△ ⟜: ⊙[:°{⊙∘} °□]
 | Move
 | ⬚0 ↻Concat ×0⇡-2⧻△ ⟜: ⊙[:°{⊙∘} °□ ¯]
 )

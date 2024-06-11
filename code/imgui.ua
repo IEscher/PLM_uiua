@@ -2,7 +2,7 @@
 R ~ "rayua"
 RG ~ "raygua"
 
-R~InitWindow [300 300] "Rayua!"
+R~InitWindow [300 300] "ImGUI Demo"
 R~SetTargetFPS 60
 
 Options ← {"One" "Two" "Three"}
