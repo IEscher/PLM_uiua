@@ -54,7 +54,37 @@ H ↚ ⟨0◌|CaseVisR|CaseVisG|CaseVisB⟩ GetCase.
 L ↚ MidRGB
 S ↚ ⟨÷-⌵(-1 ×2 MidRGB) : 1 ⟜(×2 (-MidRGB ⟜XMax))|0 ◌⟩ (+(=0MidRGB)⟜(=1MidRGB)).
 
-RGBtoHSL ← [H ⟜S ⟜L]
+OldRGBtoHSL ← [H ⟜S ⟜L]
+
+# Convert RGB to HSL
+# Expexct RGB between 0 and 1
+RGBtoHSL ← (
+  ⊃(/↥|/↧) .
+
+  -:,, # delta cmax cmin [r g b]
+
+  ⊙(⟜(:÷2+)) # delta cmax [r g b] l
+
+  =0.
+
+  ⟨
+    ⊃(
+      ⊙::⊙(⊗:,) # [r g b] delta
+      ⟨
+        ◿6 ÷: -:◌°[⊙⊙∘]     # ((g - b) / delta) % 6
+        | +2 ÷: -⊙⋅∘°[⊙⊙∘]  # (b - r) / delta + 2
+        | +4 ÷: -:⊙⊙◌°[⊙⊙∘] # (r - g) / delta + 4
+      ⟩
+
+      ⁅×60
+      ⍥(+360) <0.
+    | ÷: ⊙⋅⋅(+1¯⌵-1×2.) # delta / (1 - Math.abs(2 * l - 1))
+    )
+  | (⋅⋅⋅(0 0)) # If delta==0 h and s are 0
+  ⟩            # h s l
+
+  [⊙⊙∘]
+)
 
 HSLRGBf ↚ (
   ⊃(◿12+÷30°⊟↙2↻¯1|°⊟↘1↙3)
